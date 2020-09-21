@@ -1,3 +1,4 @@
 // export everything from home.js
-export * from './home';
-export * from './petsController';
+export default './home';
+//export * from './home';
+export default './petsController';
