@@ -1,7 +1,7 @@
-let Pet = require('../src/models/pets');
+const models = require('../src/models/pets');
 exports.petCreatePage = async (req, res) => {
     try {
-    const newPet = new Pet(req.body)
+    const newPet = new models.Pet(req.body)
     await newPet.save()
     res.json({ pet: newPet }) // Returns the new user that is created in the database
     } catch(error) {
@@ -12,7 +12,7 @@ exports.petCreatePage = async (req, res) => {
 
 exports.petsPage = async (req, res) => {
      try {
-        const pets = await Pet.findAll({
+        const pets = await models.Pet.findAll({
             
         }
         )
@@ -26,7 +26,7 @@ exports.petDetailsPage = async (req, res) => {
     const petId = req.params.petId;
     console.log(`Id from param is ${petId}`);
     try {
-        const pet = await Pet.findAll({
+        const pet = await models.Pet.findAll({
             where: {
                 id: petId
             }

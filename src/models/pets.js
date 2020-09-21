@@ -13,7 +13,7 @@ console.log('Connection has been established successfully.');
 console.error('Unable to connect to the database:', err);
 });
 
-const Pet = sequelize.define('pets', {
+exports.Pet = sequelize.define('pets', {
     // attributes
     name: { type: Sequelize.STRING, allowNull: false, unique: 'compositeIndex'},
     type: { type: Sequelize.STRING, allowNull: false},
@@ -24,6 +24,5 @@ const Pet = sequelize.define('pets', {
 }
     );
 
-    Pet.sync({ force: false }) ;
+    //Pet.sync({ force: false }) ;
 
-    exports.Pet= Pet;
