@@ -1,6 +1,6 @@
-import dotenv from 'dotenv';
-import { connectionString } from '../config';
-import { Sequelize } from 'sequelize';
+let dotenv = require('dotenv');
+let { connectionString } = require('../config');
+let { Sequelize } = require('sequelize');
 dotenv.config();
 
 const sequelize = new Sequelize(connectionString);
@@ -26,4 +26,4 @@ const Pet = sequelize.define('pets', {
 
     Pet.sync({ force: false }) ;
 
-    export default Pet;
+    exports.Pet= Pet;

@@ -1,6 +1,5 @@
-import Pet from '../src/models/pets';
-
-export const petCreatePage = async (req, res) => {
+let Pet = require('../src/models/pets');
+exports.petCreatePage = async (req, res) => {
     try {
     const newPet = new Pet(req.body)
     await newPet.save()
@@ -11,7 +10,7 @@ export const petCreatePage = async (req, res) => {
     }
     };
 
-export const petsPage = async (req, res) => {
+exports.petsPage = async (req, res) => {
      try {
         const pets = await Pet.findAll({
             
@@ -23,7 +22,7 @@ export const petsPage = async (req, res) => {
         res.json(error)
     }
 };
-export const petDetailsPage = async (req, res) => {
+exports.petDetailsPage = async (req, res) => {
     const petId = req.params.petId;
     console.log(`Id from param is ${petId}`);
     try {

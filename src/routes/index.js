@@ -1,5 +1,5 @@
 import express from 'express';
-import { indexPage, petCreatePage, petsPage, petDetailsPage } from '../../controllers';
+import { petCreatePage, petsPage, petDetailsPage } from '../../controllers/petsController';
 const indexRouter = express.Router();
 
 //indexRouter.get('/', indexPage);
