@@ -16,7 +16,7 @@ var _app = _interopRequireDefault(require("../app"));
 /**
  * Get port from environment and store in Express.
  */
-var port = normalizePort(process.env.PORT || "3003");
+var port = normalizePort(process.env.PORT || "3005");
 
 _app["default"].set("port", port);
 /**

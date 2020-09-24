@@ -6,7 +6,8 @@ exports.petCreatePage = async (req, res) => {
     res.json({ pet: newPet }); // Returns the new user that is created in the database
   } catch (error) {
     console.log("Error occured while saving data");
-    console.error(error);
+    console.error(error.name);
+    res.status(403);
     res.json(error);
   }
 };
