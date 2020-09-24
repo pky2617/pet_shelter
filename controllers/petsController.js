@@ -5,7 +5,6 @@ exports.petCreatePage = async (req, res) => {
     await newPet.save();
     res.json({ pet: newPet }); // Returns the new user that is created in the database
   } catch (error) {
-    console.log("Error occured while saving data");
     console.error(error.name);
     res.status(403);
     res.json(error);
@@ -24,7 +23,7 @@ exports.petsPage = async (req, res) => {
 };
 exports.petDetailsPage = async (req, res) => {
   const petId = req.params.petId;
-  console.log(`Id from param is ${petId}`);
+  // console.log(`Id from param is ${petId}`);
   try {
     const pet = await models.Pet.findAll({
       where: {
