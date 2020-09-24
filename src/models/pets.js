@@ -22,6 +22,7 @@ exports.Pet = sequelize.define("pets", {
   latitude: { type: Sequelize.FLOAT, allowNull: true },
   longitude: { type: Sequelize.FLOAT, allowNull: true },
   location_key: { type: Sequelize.FLOAT, allowNull: false },
+  country: { type: Sequelize.STRING, allowNull: true },
 });
 
 //Pet.sync({ force: false }) ;

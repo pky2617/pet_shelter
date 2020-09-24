@@ -1,26 +1,26 @@
 "use strict";
 
-var dotenv = require('dotenv');
+var dotenv = require("dotenv");
 
-var _require = require('../config'),
+var _require = require("../config"),
     connectionString = _require.connectionString;
 
-var _require2 = require('sequelize'),
+var _require2 = require("sequelize"),
     Sequelize = _require2.Sequelize;
 
 dotenv.config();
 var sequelize = new Sequelize(connectionString);
 sequelize.authenticate().then(function () {
-  console.log('Connection has been established successfully.');
+  console.log("Connection has been established successfully.");
 })["catch"](function (err) {
-  console.error('Unable to connect to the database:', err);
+  console.error("Unable to connect to the database:", err);
 });
-var Pet = sequelize.define('pets', {
+exports.Pet = sequelize.define("pets", {
   // attributes
   name: {
     type: Sequelize.STRING,
     allowNull: false,
-    unique: 'compositeIndex'
+    unique: "compositeIndex"
   },
   type: {
     type: Sequelize.STRING,
@@ -29,7 +29,7 @@ var Pet = sequelize.define('pets', {
   breed: {
     type: Sequelize.STRING,
     allowNull: false,
-    unique: 'compositeIndex'
+    unique: "compositeIndex"
   },
   location: {
     type: Sequelize.STRING,
@@ -42,9 +42,13 @@ var Pet = sequelize.define('pets', {
   longitude: {
     type: Sequelize.FLOAT,
     allowNull: true
+  },
+  location_key: {
+    type: Sequelize.FLOAT,
+    allowNull: false
+  },
+  country: {
+    type: Sequelize.STRING,
+    allowNull: true
   }
-});
-Pet.sync({
-  force: false
-});
-exports.Pet = Pet;
+}); //Pet.sync({ force: false }) ;

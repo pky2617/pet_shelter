@@ -15,13 +15,24 @@ var _cookieParser = _interopRequireDefault(require("cookie-parser"));
 
 var _index = _interopRequireDefault(require("./routes/index"));
 
+var _cors = _interopRequireDefault(require("cors"));
+
+//const cors = require('cors');
 var app = (0, _express["default"])();
-app.use((0, _morgan["default"])('dev'));
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+app.use((0, _morgan["default"])("dev"));
 app.use(_express["default"].json());
 app.use(_express["default"].urlencoded({
   extended: true
 }));
 app.use((0, _cookieParser["default"])());
-app.use('/', _index["default"]);
+app.use("/", _index["default"]);
+app.use((0, _cors["default"])({
+  origin: true
+}));
 var _default = app;
 exports["default"] = _default;
